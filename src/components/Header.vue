@@ -32,7 +32,7 @@ export default {
   display: flex;
   position: relative;
   justify-content: space-between;
-  height: 60px;
+  height: 50px;
   width: 100%;
   background: lime;
 }

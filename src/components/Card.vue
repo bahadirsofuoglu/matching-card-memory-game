@@ -3,11 +3,11 @@
     <transition name="flip">
       <div
         class="flipCard"
-        :style="card.flipped ? '' : 'background-color:black'"
+        :style="card.flipped ? 'background-color:black' : ''"
       >
         <font-awesome-icon
           v-bind:key="card.flipped"
-          :icon="card.flipped ? '' : card.icon"
+          :icon="card.flipped ? card.icon : ''"
         />
       </div>
     </transition>

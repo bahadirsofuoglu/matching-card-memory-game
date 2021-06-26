@@ -20,7 +20,6 @@ export default {
 
     const toggleCard = card => {
       card.flipped = !card.flipped
-      console.log(card)
     }
     return { cards, toggleCard }
   }
@@ -28,10 +27,13 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 html,
 body {
   height: 100%;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 .cards-area {
   display: flex;
