@@ -40,14 +40,15 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 200px;
-  height: 205px;
+  min-width: 60px;
+  min-height: 60px;
+  max-width: 200px;
+  max-height: 200px;
   padding: 40px 20px;
   border-radius: 7px;
   margin: 10px;
 
-  background-color: #a17de9;
+  background-color: #4b1072;
   line-height: 27px;
   cursor: pointer;
   -webkit-box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, 0.5);

@@ -31,9 +31,11 @@ export default {
 
 html,
 body {
-  height: 100%;
+  height: 100vh;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  background-color: #d4d4db;
+  overflow: hidden;
 }
 .cards-area {
   display: flex;

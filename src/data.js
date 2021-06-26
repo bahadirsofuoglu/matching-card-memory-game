@@ -19,10 +19,7 @@ export const cardsData = [
     icon: 'braille',
     flipped: false
   },
-  {
-    icon: 'closed-captioning',
-    flipped: false
-  },
+
   {
     icon: 'closed-captioning',
     flipped: false
@@ -39,10 +36,7 @@ export const cardsData = [
     icon: 'phone-volume',
     flipped: false
   },
-  {
-    icon: 'question-circle',
-    flipped: false
-  },
+
   {
     icon: 'question-circle',
     flipped: false
@@ -75,18 +69,7 @@ export const cardsData = [
     icon: 'circle',
     flipped: false
   },
-  {
-    icon: 'circle',
-    flipped: false
-  },
-  {
-    icon: 'closed-captioning',
-    flipped: false
-  },
-  {
-    icon: 'closed-captioning',
-    flipped: false
-  },
+
   {
     icon: 'compress',
     flipped: false
@@ -108,25 +91,10 @@ export const cardsData = [
     flipped: false
   },
   {
-    icon: 'fast-forward',
-    flipped: false
-  },
-  {
     icon: 'file-audio',
     flipped: false
   },
-  {
-    icon: 'file-audio',
-    flipped: false
-  },
-  {
-    icon: 'file-video',
-    flipped: false
-  },
-  {
-    icon: 'file-video',
-    flipped: false
-  },
+
   {
     icon: 'film',
     flipped: false
@@ -160,10 +128,6 @@ export const cardsData = [
     flipped: false
   },
   {
-    icon: 'pause-circle',
-    flipped: false
-  },
-  {
     icon: 'phone-volume',
     flipped: false
   },
@@ -175,10 +139,7 @@ export const cardsData = [
     icon: 'play-circle',
     flipped: false
   },
-  {
-    icon: 'play-circle',
-    flipped: false
-  },
+
   {
     icon: 'podcast',
     flipped: false
@@ -189,10 +150,6 @@ export const cardsData = [
   },
   {
     icon: 'redo',
-    flipped: false
-  },
-  {
-    icon: 'redo-alt',
     flipped: false
   },
   {
@@ -208,15 +165,7 @@ export const cardsData = [
     flipped: false
   },
   {
-    icon: 'step-forward',
-    flipped: false
-  },
-  {
     icon: 'stop',
-    flipped: false
-  },
-  {
-    icon: 'stop-circle',
     flipped: false
   },
   {
@@ -227,18 +176,12 @@ export const cardsData = [
     icon: 'sync',
     flipped: false
   },
-  {
-    icon: 'sync-alt',
-    flipped: false
-  },
+
   {
     icon: 'undo',
     flipped: false
   },
-  {
-    icon: 'undo-alt',
-    flipped: false
-  },
+
   {
     icon: 'video',
     flipped: false
@@ -258,14 +201,6 @@ export const cardsData = [
 
   {
     icon: 'address-book',
-    flipped: false
-  },
-  {
-    icon: 'address-book',
-    flipped: false
-  },
-  {
-    icon: 'address-card',
     flipped: false
   },
   {
@@ -297,10 +232,6 @@ export const cardsData = [
     flipped: false
   },
   {
-    icon: 'building',
-    flipped: false
-  },
-  {
     icon: 'bullhorn',
     flipped: false
   },
@@ -315,11 +246,8 @@ export const cardsData = [
   {
     icon: 'calendar',
     flipped: false
-  },
-  {
-    icon: 'calendar',
-    flipped: false
-  },
+  }
+  /*
   {
     icon: 'calendar-alt',
     flipped: false
@@ -411,8 +339,8 @@ export const cardsData = [
   {
     icon: 'envelope',
     flipped: false
-  },
-  {
+  } */
+  /*  {
     icon: 'envelope-open',
     flipped: false
   },
@@ -779,5 +707,5 @@ export const cardsData = [
   {
     icon: 'bell-slash',
     flipped: false
-  }
+  } */
 ]

@@ -34,7 +34,8 @@ export default {
   justify-content: space-between;
   height: 50px;
   width: 100%;
-  background: lime;
+  background: black;
+  color: #fff;
 }
 header > p {
   position: absolute;
