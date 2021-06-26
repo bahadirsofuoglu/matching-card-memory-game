@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div class="cards-area">
     <template v-for="card in cards" :key="card.front">
       <Card :card="card" @click="toggleCard(card)" />
@@ -7,11 +8,13 @@
 </template>
 
 <script>
-import { ref } from 'vue'
 import Card from '@/components/Card.vue'
+import Header from '@/components/Header.vue'
+import { ref } from 'vue'
+
 import { cardsData } from './data'
 export default {
-  components: { Card },
+  components: { Card, Header },
   setup () {
     const cards = ref(cardsData)
 
