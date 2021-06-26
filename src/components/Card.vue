@@ -26,21 +26,11 @@ export default {
 }
 </script>
 <style>
-ul {
-  padding-left: 0;
-  display: flex;
-  flex-flow: row wrap;
-}
-li {
-  list-style-type: none;
-  padding: 10px 10px;
-  transition: all 0.3s ease;
-}
 .flipCard {
   display: block;
   width: 200px;
   height: 205px;
-  padding: 80px 50px;
+  padding: 40px 20px;
   background-color: #a17de9;
   border-radius: 7px;
   margin: 5px;

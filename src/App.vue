@@ -1,6 +1,8 @@
 <template>
-  <div v-for="card in cards" :key="card.front">
-    <Card :card="card" @click="toggleCard(card)" />
+  <div class="cards-area">
+    <template v-for="card in cards" :key="card.front">
+      <Card :card="card" @click="toggleCard(card)" />
+    </template>
   </div>
 </template>
 
@@ -11,6 +13,36 @@ export default {
   components: { Card },
   setup () {
     const cards = ref([
+      {
+        front: 'asdas',
+        back: '121',
+        form: 'asdfas',
+        flipped: false
+      },
+      {
+        front: 'asdas',
+        back: '121',
+        form: 'asdfas',
+        flipped: false
+      },
+      {
+        front: 'asdas',
+        back: '121',
+        form: 'asdfas',
+        flipped: false
+      },
+      {
+        front: 'asdas',
+        back: '121',
+        form: 'asdfas',
+        flipped: false
+      },
+      {
+        front: 'asdas',
+        back: '121',
+        form: 'asdfas',
+        flipped: false
+      },
       {
         front: 'asdas',
         back: '121',
@@ -51,3 +83,15 @@ export default {
   }
 }
 </script>
+
+<style>
+.body {
+  height: 100vh;
+  width: 100vw;
+}
+.cards-area {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+</style>
