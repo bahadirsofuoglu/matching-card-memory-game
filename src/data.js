@@ -1,9 +1,5 @@
 export const cardsData = [
   {
-    icon: 'accessible-icon',
-    flipped: false
-  },
-  {
     icon: 'american-sign-language-interpreting',
     flipped: false
   },
@@ -259,10 +255,7 @@ export const cardsData = [
     icon: 'volume-up',
     flipped: false
   },
-  {
-    icon: 'youtube',
-    flipped: false
-  },
+
   {
     icon: 'address-book',
     flipped: false
@@ -785,14 +778,6 @@ export const cardsData = [
   },
   {
     icon: 'bell-slash',
-    flipped: false
-  },
-  {
-    icon: 'bluetooth',
-    flipped: false
-  },
-  {
-    icon: 'bluetooth-b',
     flipped: false
   }
 ]
