@@ -1,10 +1,14 @@
 <template>
   <div class="flashcard-list" @click="callback">
     <transition name="flip">
-      <div class="flipCard">
-        <p class="text-card">
-          {{ card.flipped ? card.back : card.front }}
-        </p>
+      <div
+        class="flipCard"
+        :style="card.flipped ? '' : 'background-color:black'"
+      >
+        <font-awesome-icon
+          v-bind:key="card.flipped"
+          :icon="card.flipped ? '' : 'coffee'"
+        />
       </div>
     </transition>
   </div>
@@ -26,64 +30,42 @@ export default {
 }
 </script>
 <style>
+.svg-inline--fa {
+  font-size: 2.4em;
+}
+
 .flipCard {
-  display: block;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 200px;
   height: 205px;
   padding: 40px 20px;
-  background-color: #a17de9;
   border-radius: 7px;
-  margin: 5px;
-  text-align: center;
+  margin: 10px;
+
+  background-color: #a17de9;
   line-height: 27px;
   cursor: pointer;
-  position: relative;
   -webkit-box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, 0.5);
   -moz-box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, 0.5);
   box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, 0.5);
   will-change: transform;
-}
-.text-card {
-  display: block;
   color: #fff;
-  text-align: inherit;
-  font-weight: 600;
-  font-size: 15px;
 }
-li:hover {
+.flashcard-list {
+  list-style-type: none;
+  padding: 10px 10px;
+  transition: all 0.3s ease;
+}
+.flashcard-list:hover {
   transform: scale(1.1);
 }
-li:nth-child(-n + 3) .flipCard {
-  background-color: #e65f51;
-}
-li:nth-child(2n + 1) .flipCard {
-  background-color: #a17de9;
-}
-li:nth-child(4n) .flipCard {
-  background-color: #feca34;
-}
-li:nth-child(5n-2) .flipCard {
-  background-color: #51aae5;
-}
-li:nth-child(4n + 4) .flipCard {
-  background-color: #feca34;
-}
-li:nth-child(-7n + 7) .flipCard {
-  background-color: #e46055;
-}
-.delete-card {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 10px 15px;
-  opacity: 0.4;
-  transition: all 0.5s ease;
-}
-.delete-card:hover,
-.error {
-  opacity: 1;
-  transform: rotate(360deg);
-}
+
+flip,
 .flip-enter-active {
   transition: all 0.4s ease;
 }

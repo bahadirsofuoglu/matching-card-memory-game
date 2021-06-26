@@ -14,55 +14,6 @@ export default {
   setup () {
     const cards = ref([
       {
-        front: 'asdas',
-        back: '121',
-        form: 'asdfas',
-        flipped: false
-      },
-      {
-        front: 'asdas',
-        back: '121',
-        form: 'asdfas',
-        flipped: false
-      },
-      {
-        front: 'asdas',
-        back: '121',
-        form: 'asdfas',
-        flipped: false
-      },
-      {
-        front: 'asdas',
-        back: '121',
-        form: 'asdfas',
-        flipped: false
-      },
-      {
-        front: 'asdas',
-        back: '121',
-        form: 'asdfas',
-        flipped: false
-      },
-      {
-        front: 'asdas',
-        back: '121',
-        form: 'asdfas',
-        flipped: false
-      },
-      {
-        front: 'asdas',
-        back: '121',
-        form: 'asdfas',
-        flipped: false
-      },
-      {
-        front: 'asdas',
-        back: '121',
-        form: 'asdfas',
-        flipped: false
-      },
-      {
-        front: 'asdas',
         back: '121',
         form: 'asdfas',
         flipped: false
@@ -85,13 +36,15 @@ export default {
 </script>
 
 <style>
-.body {
-  height: 100vh;
-  width: 100vw;
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 .cards-area {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-items: center;
 }
 </style>
