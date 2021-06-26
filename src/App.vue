@@ -9,22 +9,11 @@
 <script>
 import { ref } from 'vue'
 import Card from '@/components/Card.vue'
+import { cardsData } from './data'
 export default {
   components: { Card },
   setup () {
-    const cards = ref([
-      {
-        back: '121',
-        form: 'asdfas',
-        flipped: false
-      },
-      {
-        front: 'asdas',
-        back: '121',
-        form: 'asdfas',
-        flipped: false
-      }
-    ])
+    const cards = ref(cardsData)
 
     const toggleCard = card => {
       card.flipped = !card.flipped

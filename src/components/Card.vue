@@ -7,7 +7,7 @@
       >
         <font-awesome-icon
           v-bind:key="card.flipped"
-          :icon="card.flipped ? '' : 'coffee'"
+          :icon="card.flipped ? '' : card.icon"
         />
       </div>
     </transition>
