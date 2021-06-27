@@ -41,10 +41,11 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+
   min-width: 60px;
   min-height: 60px;
-  max-width: 200px;
-  max-height: 200px;
+  /* max-width: 200px;
+  max-height: 200px; */
   padding: 40px 20px;
   border-radius: 7px;
   margin: 10px;
@@ -62,6 +63,8 @@ export default {
   list-style-type: none;
   padding: 10px 10px;
   transition: all 0.3s ease;
+  height: 160px;
+  width: 160px;
 }
 .flashcard-list:hover {
   transform: scale(1.1);

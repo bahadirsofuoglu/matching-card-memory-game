@@ -2,7 +2,7 @@
   <Header />
   <div class="cards-area">
     <template v-for="card in cards" :key="card.id">
-      <Card :card="card" @click="toggleCard(card)" />
+      <Card :card="card" @click="toggleCard(card)" class="item" />
     </template>
   </div>
 </template>
@@ -17,8 +17,7 @@ export default {
   components: { Card, Header },
   setup () {
     let cards = ref([])
-    let level = 30
-
+    let level = 1
     onMounted(() => {
       cardsMutateAndSuffle()
     })
@@ -29,7 +28,7 @@ export default {
 
     const cardsMutateAndSuffle = () => {
       cards.value = cardsData
-        .slice(0, level)
+        .slice(0, level * 4)
         .reduce(function (res, current) {
           return res.concat([current, current])
         }, [])
@@ -54,6 +53,7 @@ export default {
 html,
 body {
   height: 100vh;
+  width: 100vw;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   background-color: #d4d4db;
@@ -62,9 +62,12 @@ body {
 
 .cards-area {
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-flow: row wrap;
   align-content: center;
-  justify-content: center;
+}
+.item {
+  flex: 1 0 10%;
 }
 </style>
