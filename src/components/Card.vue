@@ -6,8 +6,9 @@
         :style="card.flipped ? 'background-color:black' : ''"
       >
         <font-awesome-icon
+          v-if="card.flipped"
           v-bind:key="card.flipped"
-          :icon="card.flipped ? card.icon : ''"
+          :icon="card.icon"
         />
       </div>
     </transition>
