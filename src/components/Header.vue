@@ -1,13 +1,7 @@
 <template>
   <div class="header">
-    <p>
-      level:
-      <!-- {{ level }} -->
-    </p>
-    <p>
-      healt:
-      <!-- {{ healt }} -->
-    </p>
+    <p>Level: {{ level }}</p>
+    <p>Health: {{ health }}</p>
     <p>Record:</p>
   </div>
 </template>
@@ -17,7 +11,7 @@ export default {
     level: {
       type: Number
     },
-    healt: {
+    health: {
       type: Number
     }
   },
