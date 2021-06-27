@@ -6,7 +6,6 @@
         :card="card"
         @click="firstCardSelected ? matchCards(card) : toggleCard(card)"
         class="item"
-        :style="clickDisable ? 'pointer-events:none' : ''"
       />
     </template>
   </div>
@@ -22,10 +21,9 @@ export default {
   components: { Card, Header },
   setup () {
     let cards = ref([])
-    let level = 1
+    let level = ref(1)
     let health = ref(15)
     let firstCardSelected = ref(false)
-    let clickDisable = ref(false)
     let firstSelectedCard = {}
 
     onMounted(async () => {
@@ -33,14 +31,12 @@ export default {
     })
 
     const toggleCard = firstCard => {
-      clickDisable = true
       firstCard.flipped = true
       firstSelectedCard = firstCard
       firstCardSelected.value = true
     }
 
-    const matchCards = secondCard => {
-      clickDisable = true
+    const matchCards = async secondCard => {
       secondCard.flipped = true
 
       if (secondCard.icon !== firstSelectedCard.icon) {
@@ -52,13 +48,14 @@ export default {
       }
       firstCardSelected.value = false
       if (!cards.value.some(x => x.flipped === false)) {
-        window.alert('sa')
+        level.value++
+        await cardsMutateAndSuffle()
       }
     }
 
     const cardsMutateAndSuffle = () => {
       cards.value = cardsData
-        .slice(0, level * 4)
+        .slice(0, level.value * 4)
         .reduce(function (res, current) {
           return res.concat([current, current])
         }, [])
@@ -75,7 +72,6 @@ export default {
     return {
       cards,
       firstCardSelected,
-      clickDisable,
       level,
       health,
       toggleCard,
