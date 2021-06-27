@@ -1,8 +1,13 @@
 <template>
-  <Header />
+  <Header :health="health" :level="level" />
   <div class="cards-area">
     <template v-for="card in cards" :key="card.id">
-      <Card :card="card" @click="toggleCard(card)" class="item" />
+      <Card
+        :card="card"
+        @click="firstCardSelected ? matchCards(card) : toggleCard(card)"
+        class="item"
+        :style="clickDisable ? 'pointer-events:none' : ''"
+      />
     </template>
   </div>
 </template>
@@ -18,12 +23,37 @@ export default {
   setup () {
     let cards = ref([])
     let level = 1
-    onMounted(() => {
-      cardsMutateAndSuffle()
+    let health = ref(15)
+    let firstCardSelected = ref(false)
+    let clickDisable = ref(false)
+    let firstSelectedCard = {}
+
+    onMounted(async () => {
+      await cardsMutateAndSuffle()
     })
 
-    const toggleCard = card => {
-      card.flipped = !card.flipped
+    const toggleCard = firstCard => {
+      clickDisable = true
+      firstCard.flipped = true
+      firstSelectedCard = firstCard
+      firstCardSelected.value = true
+    }
+
+    const matchCards = secondCard => {
+      clickDisable = true
+      secondCard.flipped = true
+
+      if (secondCard.icon !== firstSelectedCard.icon) {
+        window.setTimeout(() => {
+          secondCard.flipped = false
+          firstSelectedCard.flipped = false
+          health.value--
+        }, 1000)
+      }
+      firstCardSelected.value = false
+      if (!cards.value.some(x => x.flipped === false)) {
+        window.alert('sa')
+      }
     }
 
     const cardsMutateAndSuffle = () => {
@@ -42,7 +72,15 @@ export default {
         .sort(() => 0.5 - Math.random())
     }
 
-    return { cards, toggleCard }
+    return {
+      cards,
+      firstCardSelected,
+      clickDisable,
+      level,
+      health,
+      toggleCard,
+      matchCards
+    }
   }
 }
 </script>
