@@ -247,7 +247,9 @@ export const cardsData = [
     icon: 'calendar',
     flipped: false
   }
-  /*
+]
+
+/*
   {
     icon: 'calendar-alt',
     flipped: false
@@ -340,7 +342,7 @@ export const cardsData = [
     icon: 'envelope',
     flipped: false
   } */
-  /*  {
+/*  {
     icon: 'envelope-open',
     flipped: false
   },
@@ -708,4 +710,3 @@ export const cardsData = [
     icon: 'bell-slash',
     flipped: false
   } */
-]

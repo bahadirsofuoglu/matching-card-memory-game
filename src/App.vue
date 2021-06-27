@@ -10,14 +10,19 @@
 <script>
 import Card from '@/components/Card.vue'
 import Header from '@/components/Header.vue'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 import { cardsData } from './data'
 export default {
   components: { Card, Header },
   setup () {
-    const cards = ref(cardsData)
-
+    let cards = ref([])
+    let level = 1
+    onMounted(() => {
+      console.log(cardsData.length)
+      cards = cardsData.slice(0, level)
+      console.log(cards)
+    })
     const toggleCard = card => {
       card.flipped = !card.flipped
     }
