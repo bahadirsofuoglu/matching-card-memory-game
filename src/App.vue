@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import Card from '@/components/Card.vue'
 import Header from '@/components/Header.vue'
 import { cardsData } from './data/cards'
@@ -21,29 +21,33 @@ export default {
   components: { Card, Header },
   setup () {
     let cards = ref([])
-    let level = ref(1)
+    let level = ref(5)
     let health = ref(15)
     let clickCount = ref(0)
     let firstCardSelected = ref(false)
     let highScoreData = ref({})
     let firstSelectedCard = {}
-    /* await updateHighScore({ level: 2, name: 'hasan' }) */
+
     onMounted(async () => {
       await cardsMutateAndSuffle()
 
       highScoreData.value = await getHighScore()
     })
-
+    watch(health, currentValue => {
+      if (currentValue === 0) {
+        checkHighScoreAndRestartGame()
+      }
+    })
     const toggleCard = firstCard => {
+      clickCount.value = 1
       firstCard.flipped = true
-      clickCount.value++
       firstSelectedCard = firstCard
       firstCardSelected.value = true
     }
 
     const matchCards = async secondCard => {
+      clickCount.value = 2
       secondCard.flipped = true
-      clickCount.value++
       if (secondCard.icon !== firstSelectedCard.icon) {
         window.setTimeout(() => {
           secondCard.flipped = false
@@ -60,7 +64,17 @@ export default {
         clickCount.value = 0
       }, 1000)
     }
-
+    const checkHighScoreAndRestartGame = async () => {
+      if (level.value > highScoreData.value.level) {
+        const newHighScoreName = prompt(
+          'NEW HİGH SCORE !! Please enter your name'
+        )
+        await updateHighScore({ level: level.value, name: newHighScoreName })
+      } else {
+        alert('Your score is lower than high score')
+      }
+      window.location.reload()
+    }
     const cardsMutateAndSuffle = () => {
       cards.value = cardsData
         .slice(0, level.value * 4)
