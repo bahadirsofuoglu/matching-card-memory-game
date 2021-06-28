@@ -17,6 +17,7 @@ import Card from '@/components/Card.vue'
 import Header from '@/components/Header.vue'
 import { cardsData } from './data/cards'
 import { getHighScore, updateHighScore } from '@/data/highScoreController'
+
 export default {
   components: { Card, Header },
   setup () {
@@ -33,11 +34,13 @@ export default {
 
       highScoreData.value = await getHighScore()
     })
+
     watch(lives, currentValue => {
       if (currentValue === 0) {
         checkHighScoreAndRestartGame()
       }
     })
+
     const toggleCard = firstCard => {
       clickCount.value = 1
       firstCard.flipped = true
@@ -64,6 +67,7 @@ export default {
         clickCount.value = 0
       }, 1000)
     }
+
     const checkHighScoreAndRestartGame = async () => {
       if (level.value > highScoreData.value.level) {
         const newHighScoreName = prompt(
@@ -75,6 +79,7 @@ export default {
       }
       window.location.reload()
     }
+
     const cardsMutateAndSuffle = () => {
       cards.value = cardsData
         .slice(0, level.value * 4)
