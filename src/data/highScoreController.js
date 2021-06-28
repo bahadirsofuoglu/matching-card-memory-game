@@ -1,14 +1,9 @@
 import firebase from './firebaseConfig'
-const db = firebase.firestore().collection('highScore')
+const db = firebase
+  .firestore()
+  .collection('highScore')
+  .doc('test')
 
-export const getHighScore = async () => {
-  const highScore = await db.doc('test').get()
+export const getHighScore = async () => await (await db.get()).data()
 
-  return highScore
-}
-
-export const updateHighScore = async score => {
-  console.log(process.env.VUE_APP_APIKEY)
-  console.log(score)
-  await db.doc('test').update(score)
-}
+export const updateHighScore = async score => await db.update(score)
