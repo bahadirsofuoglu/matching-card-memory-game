@@ -1,5 +1,5 @@
 <template>
-  <Header :health="health" :level="level" />
+  <Header :health="health" :level="level" :highScoreData="highScoreData" />
   <div class="cards-area">
     <template v-for="card in cards" :key="card.id">
       <Card
@@ -25,13 +25,14 @@ export default {
     let health = ref(15)
     let clickCount = ref(0)
     let firstCardSelected = ref(false)
+    let highScoreData = ref({})
     let firstSelectedCard = {}
 
     onMounted(async () => {
       await cardsMutateAndSuffle()
-      await updateHighScore({ level: 2, name: 'hasan' })
-      const test = await getHighScore()
-      console.log(test)
+      /* await updateHighScore({ level: 2, name: 'hasan' }) */
+      highScoreData.value = await getHighScore()
+      console.log(highScoreData)
     })
 
     const toggleCard = firstCard => {
@@ -81,6 +82,7 @@ export default {
       cards,
       firstCardSelected,
       clickCount,
+      highScoreData,
       level,
       health,
       toggleCard,
