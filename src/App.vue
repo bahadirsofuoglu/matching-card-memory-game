@@ -21,7 +21,7 @@ export default {
   components: { Card, Header },
   setup () {
     let cards = ref([])
-    let level = ref(5)
+    let level = ref(1)
     let health = ref(15)
     let clickCount = ref(0)
     let firstCardSelected = ref(false)
