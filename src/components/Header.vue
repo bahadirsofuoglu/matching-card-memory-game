@@ -2,7 +2,9 @@
   <div class="header">
     <p>Level: {{ level }}</p>
     <p>Health: {{ health }}</p>
-    <p>High Score: {{ highScoreData.name }} - {{ highScoreData.level }}</p>
+    <p>
+      High Score: {{ highScoreData.name }} - {{ highScoreData.level }} level
+    </p>
   </div>
 </template>
 <script>

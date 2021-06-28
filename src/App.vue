@@ -27,12 +27,11 @@ export default {
     let firstCardSelected = ref(false)
     let highScoreData = ref({})
     let firstSelectedCard = {}
-
+    /* await updateHighScore({ level: 2, name: 'hasan' }) */
     onMounted(async () => {
       await cardsMutateAndSuffle()
-      /* await updateHighScore({ level: 2, name: 'hasan' }) */
+
       highScoreData.value = await getHighScore()
-      console.log(highScoreData)
     })
 
     const toggleCard = firstCard => {
