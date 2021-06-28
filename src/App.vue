@@ -12,11 +12,11 @@
 </template>
 
 <script>
+import { ref, onMounted } from 'vue'
 import Card from '@/components/Card.vue'
 import Header from '@/components/Header.vue'
-import { ref, onMounted } from 'vue'
-
 import { cardsData } from './data/cards'
+import { getHighScore, updateHighScore } from '@/data/highScoreController'
 export default {
   components: { Card, Header },
   setup () {
@@ -29,6 +29,9 @@ export default {
 
     onMounted(async () => {
       await cardsMutateAndSuffle()
+      await updateHighScore({ level: 2, name: 'hasan' })
+      const test = await getHighScore()
+      console.log(test)
     })
 
     const toggleCard = firstCard => {
