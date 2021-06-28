@@ -48,7 +48,7 @@ p:last-child {
 p:first-child {
   margin-left: 100px;
 }
-@media screen and (max-width: 541px) {
+@media screen and (max-width: 634px) {
   .header {
     position: absolute;
     height: 80px;
