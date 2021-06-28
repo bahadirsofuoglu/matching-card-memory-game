@@ -5,7 +5,7 @@
       <Card
         :card="card"
         @click="firstCardSelected ? matchCards(card) : toggleCard(card)"
-        :class="clickCount === 2 ? 'item disabled' : 'item'"
+        :class="clickCount === 2 || card.flipped ? 'item disabled' : 'item'"
       />
     </template>
   </div>
