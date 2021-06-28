@@ -5,7 +5,7 @@
       <Card
         :card="card"
         @click="firstCardSelected ? matchCards(card) : toggleCard(card)"
-        class="item"
+        :class="clickCount === 2 ? 'item disabled' : 'item'"
       />
     </template>
   </div>
@@ -23,6 +23,7 @@ export default {
     let cards = ref([])
     let level = ref(1)
     let health = ref(15)
+    let clickCount = ref(0)
     let firstCardSelected = ref(false)
     let firstSelectedCard = {}
 
@@ -32,13 +33,14 @@ export default {
 
     const toggleCard = firstCard => {
       firstCard.flipped = true
+      clickCount.value++
       firstSelectedCard = firstCard
       firstCardSelected.value = true
     }
 
     const matchCards = async secondCard => {
       secondCard.flipped = true
-
+      clickCount.value++
       if (secondCard.icon !== firstSelectedCard.icon) {
         window.setTimeout(() => {
           secondCard.flipped = false
@@ -51,6 +53,9 @@ export default {
         level.value++
         await cardsMutateAndSuffle()
       }
+      window.setTimeout(() => {
+        clickCount.value = 0
+      }, 2000)
     }
 
     const cardsMutateAndSuffle = () => {
@@ -72,6 +77,7 @@ export default {
     return {
       cards,
       firstCardSelected,
+      clickCount,
       level,
       health,
       toggleCard,
@@ -103,5 +109,8 @@ body {
 }
 .item {
   flex: 1 0 10%;
+}
+.disabled {
+  pointer-events: none;
 }
 </style>
