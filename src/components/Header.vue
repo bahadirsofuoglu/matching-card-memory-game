@@ -28,9 +28,10 @@ export default {
 </script>
 <style>
 .header {
-  display: flex;
   position: absolute;
   z-index: 20000;
+
+  display: flex;
   justify-content: space-between;
   height: 50px;
   width: 100%;

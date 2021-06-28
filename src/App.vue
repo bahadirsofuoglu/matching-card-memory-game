@@ -110,8 +110,8 @@ export default {
 
 html,
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   background-color: #d4d4db;
@@ -119,8 +119,9 @@ body {
 }
 
 .cards-area {
-  height: 100vh;
-  width: 100vw;
+  position: relative;
+  top: 80px;
+
   display: flex;
   flex-flow: row wrap;
   align-content: center;
@@ -130,5 +131,12 @@ body {
 }
 .disabled {
   pointer-events: none;
+}
+
+@media screen and (min-width: 1120px) {
+  .cards-area {
+    height: 90vh;
+    width: 100vw;
+  }
 }
 </style>
