@@ -1,5 +1,5 @@
 <template>
-  <Header :health="health" :level="level" :highScoreData="highScoreData" />
+  <Header :lives="lives" :level="level" :highScoreData="highScoreData" />
   <div class="cards-area">
     <template v-for="card in cards" :key="card.id">
       <Card
@@ -22,7 +22,7 @@ export default {
   setup () {
     let cards = ref([])
     let level = ref(1)
-    let health = ref(15)
+    let lives = ref(15)
     let clickCount = ref(0)
     let firstCardSelected = ref(false)
     let highScoreData = ref({})
@@ -33,7 +33,7 @@ export default {
 
       highScoreData.value = await getHighScore()
     })
-    watch(health, currentValue => {
+    watch(lives, currentValue => {
       if (currentValue === 0) {
         checkHighScoreAndRestartGame()
       }
@@ -52,7 +52,7 @@ export default {
         window.setTimeout(() => {
           secondCard.flipped = false
           firstSelectedCard.flipped = false
-          health.value--
+          lives.value--
         }, 1000)
       }
       firstCardSelected.value = false
@@ -71,7 +71,7 @@ export default {
         )
         await updateHighScore({ level: level.value, name: newHighScoreName })
       } else {
-        alert('Your score is lower than high score')
+        alert('You couldnt pass the highest score')
       }
       window.location.reload()
     }
@@ -97,7 +97,7 @@ export default {
       clickCount,
       highScoreData,
       level,
-      health,
+      lives,
       toggleCard,
       matchCards
     }

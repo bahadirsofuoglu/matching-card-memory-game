@@ -1,9 +1,10 @@
 <template>
   <div class="header">
     <p>Level: {{ level }}</p>
-    <p>Health: {{ health }}</p>
+    <p>Lives: {{ lives }}</p>
     <p>
-      High Score: {{ highScoreData.name }} - {{ highScoreData.level }} level
+      Highest Score: {{ highScoreData.name }} - level
+      {{ highScoreData.level }}
     </p>
   </div>
 </template>
@@ -13,7 +14,7 @@ export default {
     level: {
       type: Number
     },
-    health: {
+    lives: {
       type: Number
     },
     highScoreData: {
