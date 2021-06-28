@@ -2,7 +2,7 @@
   <div class="header">
     <p>Level: {{ level }}</p>
     <p>Health: {{ health }}</p>
-    <p>Record:</p>
+    <p>High Score: {{ highScoreData.name }} - {{ highScoreData.level }}</p>
   </div>
 </template>
 <script>
@@ -13,6 +13,9 @@ export default {
     },
     health: {
       type: Number
+    },
+    highScoreData: {
+      type: Object
     }
   },
 
