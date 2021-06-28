@@ -115,7 +115,7 @@ body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   background-color: #d4d4db;
-  overflow: hidden;
+  /*  overflow: hidden; */
 }
 
 .cards-area {

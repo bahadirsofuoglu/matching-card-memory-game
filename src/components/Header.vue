@@ -29,7 +29,8 @@ export default {
 <style>
 .header {
   display: flex;
-  position: relative;
+  position: absolute;
+  z-index: 20000;
   justify-content: space-between;
   height: 50px;
   width: 100%;
