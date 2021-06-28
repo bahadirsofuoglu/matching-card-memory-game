@@ -16,7 +16,7 @@ import Card from '@/components/Card.vue'
 import Header from '@/components/Header.vue'
 import { ref, onMounted } from 'vue'
 
-import { cardsData } from './data'
+import { cardsData } from './data/cards'
 export default {
   components: { Card, Header },
   setup () {
@@ -55,7 +55,7 @@ export default {
       }
       window.setTimeout(() => {
         clickCount.value = 0
-      }, 2000)
+      }, 1000)
     }
 
     const cardsMutateAndSuffle = () => {
