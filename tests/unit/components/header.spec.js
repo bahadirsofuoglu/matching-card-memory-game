@@ -16,11 +16,11 @@ const wrapper = shallowMount(Header, {
 
 describe('Card Component Tests', () => {
   describe('Computed test', () => {
-    it('computed value flipCardClass should change with card.flipped(true)', async () => {
+    it('if props score equal null scoreData should be null', async () => {
       expect(wrapper.vm.scoreData).toBe(null)
     })
 
-    it('computed value flipCardClass should change with card.flipped(true)', async () => {
+    it('if props score not equal null scoreData should be string', async () => {
       await wrapper.setProps({ score: 10 })
       expect(wrapper.vm.scoreData).toBe(`- Score: 10`)
     })
