@@ -1,6 +1,6 @@
 <template>
   <div class="flashcard-list" @click="callback">
-    <div class="flipCard" :style="card.flipped ? 'background-color:black' : ''">
+    <div :class="flipCardClass">
       <font-awesome-icon
         v-if="card.flipped"
         v-bind:key="card.flipped"
@@ -10,6 +10,7 @@
   </div>
 </template>
 <script>
+import { computed } from 'vue'
 export default {
   props: {
     card: {
@@ -18,10 +19,17 @@ export default {
   },
   emits: ['click'],
   setup (props, { emit }) {
+    const flipCardClass = computed(() => {
+      if (props.card.flipped) {
+        return 'flipCard bg-black'
+      }
+      return 'flipCard'
+    })
+
     const callback = e => {
       emit('click', e)
     }
-    return { callback }
+    return { flipCardClass, callback }
   }
 }
 </script>
@@ -62,5 +70,8 @@ export default {
 }
 .flashcard-list:hover {
   transform: scale(1.1);
+}
+.bg-black {
+  background-color: black;
 }
 </style>

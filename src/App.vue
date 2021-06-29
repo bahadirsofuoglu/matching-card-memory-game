@@ -129,6 +129,7 @@ export default {
     return {
       cards,
       firstCardSelected,
+      firstSelectedCard,
       clickCount,
       highScoreData,
       score,
