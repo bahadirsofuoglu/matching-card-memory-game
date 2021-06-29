@@ -19,13 +19,20 @@ describe('Card Component Tests', () => {
       expect(wrapper.vm.firstCardSelected).toBe(true)
     })
 
-    /*    it('matchCards should change some values', async () => {
-      await wrapper.vm.toggleCard(secondCard)
+    it('matchCards should change some values', async () => {
+      /*   await wrapper.vm.toggleCard(firstCard) */
+      await wrapper.vm.matchCards(secondCard)
 
       expect(wrapper.vm.clickCount).toBe(2)
       expect(secondCard.flipped).toBe(true)
-      
-      expect(wrapper.vm.firstCardSelected).toBe(true)
-    }) */
+
+      expect(wrapper.vm.firstCardSelected).toBe(false)
+      window.setTimeout(() => {
+        expect(wrapper.vm.clickCount).toBe(0)
+      }, 1000)
+      window.setTimeout(() => {
+        expect(wrapper.vm.calculateScore).toHaveBeenCalled()
+      }, 1000)
+    })
   })
 })
