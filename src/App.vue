@@ -3,7 +3,7 @@
     :health="health"
     :level="level"
     :highScoreData="highScoreData"
-    :score="level === highScoreData.level ? score : null"
+    :score="level >= highScoreData.level ? score : null"
   />
   <div class="cards-area">
     <template v-for="card in cards" :key="card.id">
@@ -22,12 +22,13 @@ import Card from '@/components/Card.vue'
 import Header from '@/components/Header.vue'
 import { cardsData } from './data/cards'
 import { getHighScore, updateHighScore } from '@/data/highScoreController'
+
 export default {
   components: { Card, Header },
   setup () {
     let cards = ref([])
-    let level = ref(4)
-    let health = ref(3)
+    let level = ref(1)
+    let health = ref(10)
     let score = ref(0)
     let clickCount = ref(0)
     let firstCardSelected = ref(false)
@@ -64,16 +65,19 @@ export default {
         }, 1000)
       }
       firstCardSelected.value = false
+
       if (!cards.value.some(x => x.flipped === false)) {
         level.value++
+        score.value = 0
         await cardsMutateAndSuffle()
       }
+
       window.setTimeout(() => {
         clickCount.value = 0
       }, 1000)
+
       window.setTimeout(() => {
-        const flippedCards = cards.value.filter(x => x.flipped === true).length
-        score.value = (flippedCards / 2) * 10
+        calculateScore()
       }, 1000)
     }
 
@@ -81,8 +85,7 @@ export default {
       if (level.value > highScoreData.value.level) {
         await newHighScore()
       } else if (level.value === highScoreData.value.level) {
-        const flippedCards = cards.value.filter(x => x.flipped === true).length
-        score.value = (flippedCards / 2) * 10
+        await calculateScore()
 
         score.value >= highScoreData.value.score
           ? await newHighScore()
@@ -103,7 +106,10 @@ export default {
         name: newHighScoreName
       })
     }
-
+    const calculateScore = () => {
+      const flippedCards = cards.value.filter(x => x.flipped === true).length
+      score.value = (flippedCards / 2) * 10
+    }
     const cardsMutateAndSuffle = () => {
       cards.value = cardsData
         .slice(0, level.value * 4)
