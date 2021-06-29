@@ -1,5 +1,6 @@
 # matching-cards-memory-game
-It is a simple memory game that I made to improve about Vue 3 composition api. I created the back of the cards by crafting font-awesome icons. I used firebase to register the highest user. The aim of the game is to skip levels with the fewest mistakes.
+It is a simple memory game that I made to improve myself about Vue 3 composition api. I created the card data by crafting fontawesome icon data. I used firestore to save the highest user. The aim of this game is to pass the levels before running out of lives.
+
 ![](https://firebasestorage.googleapis.com/v0/b/matching-cards-memory-game.appspot.com/o/Screen%20Shot%202021-06-30%20at%2001.13.27.png?alt=media&token=fcd18c2e-3364-41b9-9c75-876d3e04f884)
 
 ##### Setup .ENV File && Work Locally:
