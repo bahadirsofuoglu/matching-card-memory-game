@@ -1,5 +1,10 @@
 <template>
-  <Header :lives="lives" :level="level" :highScoreData="highScoreData" />
+  <Header
+    :health="health"
+    :level="level"
+    :highScoreData="highScoreData"
+    :score="level >= highScoreData.level ? score : null"
+  />
   <div class="cards-area">
     <template v-for="card in cards" :key="card.id">
       <Card
@@ -23,7 +28,8 @@ export default {
   setup () {
     let cards = ref([])
     let level = ref(1)
-    let lives = ref(15)
+    let health = ref(10)
+    let score = ref(0)
     let clickCount = ref(0)
     let firstCardSelected = ref(false)
     let highScoreData = ref({})
@@ -35,7 +41,7 @@ export default {
       highScoreData.value = await getHighScore()
     })
 
-    watch(lives, currentValue => {
+    watch(health, currentValue => {
       if (currentValue === 0) {
         checkHighScoreAndRestartGame()
       }
@@ -59,27 +65,51 @@ export default {
         }, 1000)
       }
       firstCardSelected.value = false
+
       if (!cards.value.some(x => x.flipped === false)) {
         level.value++
+        score.value = 0
         await cardsMutateAndSuffle()
       }
+
       window.setTimeout(() => {
         clickCount.value = 0
+      }, 1000)
+
+      window.setTimeout(() => {
+        calculateScore()
       }, 1000)
     }
 
     const checkHighScoreAndRestartGame = async () => {
       if (level.value > highScoreData.value.level) {
-        const newHighScoreName = prompt(
-          'NEW HİGH SCORE !! Please enter your name'
-        )
-        await updateHighScore({ level: level.value, name: newHighScoreName })
+        await newHighScore()
+      } else if (level.value === highScoreData.value.level) {
+        await calculateScore()
+
+        score.value >= highScoreData.value.score
+          ? await newHighScore()
+          : alert('Your score is lower than high score')
       } else {
         alert('You couldnt pass the highest score')
       }
       window.location.reload()
     }
 
+    const newHighScore = async () => {
+      const newHighScoreName = prompt(
+        'NEW HİGH SCORE !! Please enter your name'
+      )
+      await updateHighScore({
+        level: level.value,
+        score: score.value,
+        name: newHighScoreName
+      })
+    }
+    const calculateScore = () => {
+      const flippedCards = cards.value.filter(x => x.flipped === true).length
+      score.value = (flippedCards / 2) * 10
+    }
     const cardsMutateAndSuffle = () => {
       cards.value = cardsData
         .slice(0, level.value * 4)
@@ -101,6 +131,7 @@ export default {
       firstCardSelected,
       clickCount,
       highScoreData,
+      score,
       level,
       lives,
       toggleCard,

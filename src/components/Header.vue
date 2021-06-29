@@ -1,20 +1,24 @@
 <template>
   <div class="header">
-    <p>Level: {{ level }}</p>
-    <p>Lives: {{ lives }}</p>
+    <p>Level: {{ level }} {{ scoreData }}</p>
+    <p>Health: {{ health }}</p>
     <p>
-      Highest Score: {{ highScoreData.name }} - level
-      {{ highScoreData.level }}
+      High Score: {{ highScoreData.name }}({{ highScoreData.level }} level) -
+      Score: {{ highScoreData.score }}
     </p>
   </div>
 </template>
 <script>
+import { computed } from 'vue'
 export default {
   props: {
     level: {
       type: Number
     },
-    lives: {
+    score: {
+      type: Number
+    },
+    health: {
       type: Number
     },
     highScoreData: {
@@ -22,8 +26,16 @@ export default {
     }
   },
 
-  setup () {
-    return {}
+  setup (props) {
+    const scoreData = computed(() => {
+      if (props.score !== null) {
+        return `- Score: ${props.score}`
+      }
+      return null
+    })
+    return {
+      scoreData
+    }
   }
 }
 </script>
