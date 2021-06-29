@@ -49,6 +49,22 @@ describe('Card Component Tests', () => {
 
         expect(wrapper.vm.lives).toEqual(15)
       })
+
+      /*  it('lives should not be changed if first and second cards icons not matched', async () => {
+        console.log(wrapper.vm.cards)
+        secondCard.icon = 'coffee'
+        wrapper.vm.firstSelectedCard = firstCard
+        await wrapper.vm.matchCards(secondCard)
+
+        expect(wrapper.vm.lives).toEqual(15)
+      }) */
+
+      /*   it('lives should not be changed if first and second cards icons not matched', async () => {
+        wrapper.vm.lives = 0
+        const spy = jest.spyOn(checkHighScoreAndRestartGame, 'doThing')
+
+        expect(spy).toBeCalled()
+      }) */
     })
   })
 })
