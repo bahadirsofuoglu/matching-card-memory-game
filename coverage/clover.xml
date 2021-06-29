@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1625000485582" clover="3.2.0">
-  <project timestamp="1625000485582" name="All files">
-    <metrics statements="79" coveredstatements="58" conditionals="16" coveredconditionals="7" methods="22" coveredmethods="14" elements="117" coveredelements="79" complexity="0" loc="79" ncloc="79" packages="2" files="3" classes="3"/>
+<coverage generated="1625002518646" clover="3.2.0">
+  <project timestamp="1625002518646" name="All files">
+    <metrics statements="79" coveredstatements="46" conditionals="16" coveredconditionals="3" methods="22" coveredmethods="9" elements="117" coveredelements="58" complexity="0" loc="79" ncloc="79" packages="2" files="3" classes="3"/>
     <package name="src">
       <metrics statements="63" coveredstatements="42" conditionals="12" coveredconditionals="3" methods="17" coveredmethods="9"/>
       <file name="App.vue" path="/Users/bahadirsofuoglu/Documents/projects/matching-card-memory-game/src/App.vue">
@@ -67,33 +67,33 @@
         <line num="117" count="4" type="stmt"/>
         <line num="120" count="8" type="stmt"/>
         <line num="124" count="8" type="stmt"/>
-        <line num="126" count="13" type="stmt"/>
+        <line num="126" count="12" type="stmt"/>
         <line num="129" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+      <metrics statements="16" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
       <file name="Card.vue" path="/Users/bahadirsofuoglu/Documents/projects/matching-card-memory-game/src/components/Card.vue">
-        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
+        <metrics statements="9" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
       </file>
       <file name="Header.vue" path="/Users/bahadirsofuoglu/Documents/projects/matching-card-memory-game/src/components/Header.vue">
-        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="31" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
+        <metrics statements="7" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
       </file>
     </package>
   </project>
