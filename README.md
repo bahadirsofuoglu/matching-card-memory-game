@@ -1,30 +1,23 @@
-# matching-card-memory-game
+# matching-cards-memory-game
+It is a simple memory game that I made to improve about Vue 3 composition api. I created the back of the cards by crafting font-awesome icons. I used firebase to register the highest user. The aim of the game is to skip levels with the fewest mistakes.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+```sh
+$ git clone https://github.com/bahadirsofuoglu/matching-cards-memory-game.git
+$ cd matching-cards-memory-game
+$ npm install
 ```
 
-### Compiles and minifies for production
+##### Setup .ENV File && Work Locally:
+```sh
+VUE_APP_APIKEY=<YOUR-KEY>
+VUE_APP_AUTHDOMAIN=<YOUR-KEY>
+VUE_APP_PROJECTID=<YOUR-KEY>
+VUE_APP_STORAGEBUCKET=<YOUR-KEY>
+VUE_APP_MESSAGINGSENDERID=<YOUR-KEY>
+VUE_APP_APPID=<YOUR-KEY>
 ```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
+```sh
+$ npm run serve
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# matching-card-memory-game
+![](https://i.gifer.com/g0ST.gif)
