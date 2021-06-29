@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <p>Level: {{ level }}</p>
+    <p>Level: {{ level }} - Score: {{ score }}</p>
     <p>Health: {{ health }}</p>
     <p>
       High Score: {{ highScoreData.name }} - {{ highScoreData.level }} level
@@ -11,6 +11,9 @@
 export default {
   props: {
     level: {
+      type: Number
+    },
+    score: {
       type: Number
     },
     health: {
