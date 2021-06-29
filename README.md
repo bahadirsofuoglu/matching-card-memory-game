@@ -20,4 +20,4 @@ VUE_APP_APPID=<YOUR-KEY>
 $ npm run serve
 ```
 
-![](https://media.giphy.com/media/opkBx9TikuQbS/giphy.gif)
+![](https://media.giphy.com/media/NusOH30J7QiJy/giphy.gif)
