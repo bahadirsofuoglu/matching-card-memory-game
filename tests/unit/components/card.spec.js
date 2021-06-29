@@ -26,4 +26,12 @@ describe('Card Component Tests', () => {
       expect(wrapper.vm.flipCardClass).toBe('flipCard')
     })
   })
+
+  describe('Emit test', () => {
+    it('click should trigger after callback funtion', async () => {
+      wrapper.vm.callback()
+      await wrapper.vm.$nextTick()
+      expect(wrapper.emitted().click).toBeTruthy()
+    })
+  })
 })
