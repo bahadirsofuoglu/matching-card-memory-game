@@ -1,6 +1,6 @@
 <template>
   <Header
-    :health="health"
+    :lives="lives"
     :level="level"
     :highScoreData="highScoreData"
     :score="level >= highScoreData.level ? score : null"
@@ -28,7 +28,7 @@ export default {
   setup () {
     let cards = ref([])
     let level = ref(1)
-    let health = ref(10)
+    let lives = ref(15)
     let score = ref(0)
     let clickCount = ref(0)
     let firstCardSelected = ref(false)
@@ -41,7 +41,7 @@ export default {
       highScoreData.value = await getHighScore()
     })
 
-    watch(health, currentValue => {
+    watch(lives, currentValue => {
       if (currentValue === 0) {
         checkHighScoreAndRestartGame()
       }
