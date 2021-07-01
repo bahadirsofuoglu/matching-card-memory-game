@@ -10,7 +10,7 @@ const config = {
   appId: process.env.VUE_APP_APPID
 }
 firebase.initializeApp(config)
-
+firebase.analytics()
 firebase.firestore().settings(settings)
 
 export default firebase
